@@ -3,11 +3,11 @@
 ## INSTALL
 First, you need to build an image using a Dockerfile, and the specific command is as follows:
 ```shell
-docker build -t sqlancer-18.04 . --network host
+docker build -t sqlancer-18.04 . 
 ```
 Secondly, you need to run the image to get a container, and the specific command is as follows:
 ```shell
-docker run  --network host --name sqlancer-18.04 -itd  sqlancer-18.04
+docker run  --network mynet --name sqlancer-18.04 -itd  sqlancer-18.04
 ```
 last, you need to enter the container to use SQLancer, and the specific command is as follows:
 ```shell
