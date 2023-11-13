@@ -1,7 +1,7 @@
 # MySQL Installation
 For black-box fuzzing, there are two methods to install the MySQL database for testing. One is to use Docker images for installation, and the other is to install using an offline installation package.
 
-## Docker INSTALL
+## Docker Install
 Taking the installation of MySQL 8.0.16 as an example, the installation process is as follows:
 1. Pull the image from the Docker repository.
 ```shell
