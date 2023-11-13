@@ -66,7 +66,7 @@ The output of fuzzing for `MySQL` is located in `/home/sqlancer/target/logs/mysq
 ## Fuzzing of PostgreSQL
 
 ### Install PostgreSQL
-Firstly, you need to install PostgreSQL, See the detailed tutorial [INSTALL_PostgreSQL.md](https://github.com/Reverie4u/OpenDBFuzz/blob/main/DBMSs/MySQL/INSTALL_PostgreSQL.md). In order to meet the requirements of SQLancer, you need to create a database named 'test' in PostgreSQL, and the specific command is as follows:
+Firstly, you need to install PostgreSQL, See the detailed tutorial [INSTALL_PostgreSQL.md](https://github.com/Reverie4u/OpenDBFuzz/blob/main/DBMSs/PostgreSQL/INSTALL_PostgreSQL.md). In order to meet the requirements of SQLancer, you need to change passport of user 'postgres' in PostgreSQL, and the specific command is as follows:
 ```shell
 sudo -i -u postgres
 psql -p 5432
