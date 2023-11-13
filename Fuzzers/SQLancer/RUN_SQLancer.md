@@ -1,6 +1,6 @@
 # How to use SQLancer?
 
-## INSTALL
+## Install
 Firstly, you need to build an image using a Dockerfile, and the specific command is as follows:
 ```shell
 docker build -t sqlancer-18.04 . 
@@ -39,8 +39,8 @@ The output of fuzzing for `SQLite` is located in `/home/sqlancer/target/logs/sql
 
 ## Fuzzing of MySQL
 
-### INSTALL MYSQL
-Firstly, you need to install MySQL, See the detailed tutorial`DBMS/MySQL/README.md`. In order to meet the requirements of SQ Lancer, you need to create a database named 'test' in MySQL, and the specific command is as follows:
+### Install MYSQL
+Firstly, you need to install MySQL, See the detailed tutorial [INSTALL_MySQL.md](https://github.com/Reverie4u/OpenDBFuzz/blob/main/DBMSs/MySQL/INSTALL_MYSQL.md). In order to meet the requirements of SQ Lancer, you need to create a database named 'test' in MySQL, and the specific command is as follows:
 ```shell
 mysql -P 3306 -u root
 create database test;
