@@ -40,7 +40,7 @@ The output of fuzzing for `SQLite` is located in `/home/sqlancer/target/logs/sql
 ## Fuzzing of MySQL
 
 ### Install MYSQL
-Firstly, you need to install MySQL, See the detailed tutorial [INSTALL_MySQL.md](https://github.com/Reverie4u/OpenDBFuzz/blob/main/DBMSs/MySQL/INSTALL_MYSQL.md). In order to meet the requirements of SQ Lancer, you need to create a database named 'test' in MySQL, and the specific command is as follows:
+Firstly, you need to install MySQL, See the detailed tutorial [INSTALL_MySQL.md](https://github.com/Reverie4u/OpenDBFuzz/blob/main/DBMSs/MySQL/INSTALL_MYSQL.md). In order to meet the requirements of SQLancer, you need to create a user named 'test' in MySQL, and the specific command is as follows:
 ```shell
 mysql -P 3306 -u root
 create database test;
@@ -50,15 +50,36 @@ grant all on *.* to 'test'@'%';
 
 ### Start Fuzzing
 After installing MySQL, you can start fuzzing. The specific command is as follows:
-1. Use MySQL in a different container
+1. Test MySQL in a different container
 ```shell
 cd /home/sqlancer/target
 java -jar sqlancer-*.jar --host mysql-8.0.16 --username test --password test  --timeout-seconds 1440 --num-threads 60  --num-tries 100000000  --print-progress-summary true --use-reducer  mysql --oracle PQS
 ```
-2. Use MySQL of this container
+2. Test MySQL of this container
 ```shell
 cd /home/sqlancer/target
 java -jar sqlancer-*.jar  --username test --password test  --timeout-seconds 1440 --num-threads 60  --num-tries 100000000  --print-progress-summary true --use-reducer  mysql --oracle PQS
 ```
 ### Output
 The output of fuzzing for `MySQL` is located in `/home/sqlancer/target/logs/mysql`. Each `database*.log` file represents a detected logic bug.
+
+## Fuzzing of PostgreSQL
+
+### Install PostgreSQL
+Firstly, you need to install PostgreSQL, See the detailed tutorial [INSTALL_PostgreSQL.md](https://github.com/Reverie4u/OpenDBFuzz/blob/main/DBMSs/MySQL/INSTALL_PostgreSQL.md). In order to meet the requirements of SQLancer, you need to create a database named 'test' in PostgreSQL, and the specific command is as follows:
+```shell
+sudo -i -u postgres
+psql -p 5432
+ALTER USER postgres PASSWORD 'postgres';
+```
+
+### Start Fuzzing
+After installing PostgreSQL, you can start fuzzing. The specific command is as follows:
+
+1. Test MySQL of this container
+```shell
+cd /home/sqlancer/target
+java -jar sqlancer-*.jar --port 5432 --username postgres --password postgres  --timeout-seconds 1440 --num-threads 60  --num-tries 100000000  --print-progress-summary true --use-reducer  postgres  --oracle PQS
+```
+### Output
+The output of fuzzing for `PostgreSQL` is located in `/home/sqlancer/target/logs/postgres`. Each `database*.log` file represents a detected logic bug.
