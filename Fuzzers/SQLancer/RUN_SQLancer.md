@@ -1,7 +1,7 @@
 # How to use SQLancer?
 
 ## Install
-Firstly, you need to build an image using a Dockerfile, and the specific command is as follows:
+Firstly, you need to build an image using a Dockerfile of [SQLancer](https://github.com/sqlancer/sqlancer), and the specific command is as follows:
 ```shell
 docker build -t sqlancer-18.04 . 
 ```
@@ -25,12 +25,12 @@ mvn package -DskipTests
 ### Start Fuzzing
 After recompiling `SQLancer`, you can start fuzzing. The specific command is as follows:
 ```shell
-cd /home/sqlancer/sqlancer/target
+cd /home/sqlancer/target
 java -jar sqlancer-*.jar --timeout-seconds 1440 --num-threads 60 --num-tries 100000000 --print-progress-summary true --use-reducer sqlite3 --oracle PQS 
 ```
 For SQLite, optional oracles include PQS, NOREC, TLP, for more usage instructions, please run the following command:
 ```shell
-cd /home/sqlancer/sqlancer/target
+cd /home/sqlancer/target
 java -jar sqlancer-*.jar --help
 ```
 
@@ -52,12 +52,12 @@ grant all on *.* to 'test'@'%';
 After installing MySQL, you can start fuzzing. The specific command is as follows:
 1. Use MySQL in a different container
 ```shell
-cd /home/sqlancer/sqlancer/target
+cd /home/sqlancer/target
 java -jar sqlancer-*.jar --host mysql-8.0.16 --username test --password test  --timeout-seconds 1440 --num-threads 60  --num-tries 100000000  --print-progress-summary true --use-reducer  mysql --oracle PQS
 ```
 2. Use MySQL of this container
 ```shell
-cd /home/sqlancer/sqlancer/target
+cd /home/sqlancer/target
 java -jar sqlancer-*.jar  --username test --password test  --timeout-seconds 1440 --num-threads 60  --num-tries 100000000  --print-progress-summary true --use-reducer  mysql --oracle PQS
 ```
 ### Output
