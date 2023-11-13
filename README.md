@@ -1,5 +1,5 @@
 # OpenDBFuzz
-An open-source toolkit for DBMS fuzzing
+An open-source toolkit for DBMS fuzzing.
 
 
 ## Directory Structure
