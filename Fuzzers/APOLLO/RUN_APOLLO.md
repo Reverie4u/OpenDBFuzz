@@ -15,3 +15,11 @@ Lastly, you need to enter the container to use Apollo, and the specific command 
 docker exec -ti apollo /bin/bash
 ```
 ## Fuzzing of PostgreSQL
+
+### Start Fuzzing
+```shell
+cd /home/apollo/src/sqlfuzz
+./fuzz.py -c configuration/postgres.yaml
+```
+### Output
+The output of fuzzing for `PostgreSQL` is located in `/tmp/out`.
