@@ -3,21 +3,21 @@
 ## Install
 Firstly, you need to build an image using a Dockerfile of [DQE](https://github.com/tcse-iscas/dqetool), and the specific command is as follows:
 ```shell
-docker build -t dqe-18.04 . 
+docker build -t dqe . 
 ```
 Secondly, you need to run the image to get a container, and the specific command is as follows:
 ```shell
 # mynet is the name of the docker network, You can access DBMSs in other containers over that network
-docker run  --network mynet --name dqe-18.04 -itd  dqe-18.04
+docker run  --network mynet --name dqe -itd  dqe
 ```
-Lastly, you need to enter the container to use SQLancer, and the specific command is as follows:
+Lastly, you need to enter the container to use DQE, and the specific command is as follows:
 ```shell
-docker exec -ti dqe-18.04 /bin/bash
+docker exec -ti dqe /bin/bash
 ```
 ## Fuzzing of SQLite
 
 ### Recompile
-After entering the container, the first step is to modify the `pom.xml` file located in `/home/sqlancer` to select the SQLite version you want to test. Then, execute the following command to recompile `SQLancer`:
+After entering the container, the first step is to modify the `pom.xml` file located in `/home/dqetool` to select the SQLite version you want to test. Then, execute the following command to recompile `DQE`:
 ```shell
 mvn package -DskipTests
 ```

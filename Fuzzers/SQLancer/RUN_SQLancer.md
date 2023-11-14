@@ -3,16 +3,16 @@
 ## Install
 Firstly, you need to build an image using a Dockerfile of [SQLancer](https://github.com/sqlancer/sqlancer), and the specific command is as follows:
 ```shell
-docker build -t sqlancer-18.04 . 
+docker build -t sqlancer . 
 ```
 Secondly, you need to run the image to get a container, and the specific command is as follows:
 ```shell
 # mynet is the name of the docker network, You can access DBMSs in other containers over that network
-docker run  --network mynet --name sqlancer-18.04 -itd  sqlancer-18.04
+docker run  --network mynet --name sqlancer -itd  sqlancer
 ```
 Lastly, you need to enter the container to use SQLancer, and the specific command is as follows:
 ```shell
-docker exec -ti sqlancer-18.04 /bin/bash
+docker exec -ti sqlancer /bin/bash
 ```
 ## Fuzzing of SQLite
 
@@ -42,7 +42,7 @@ The output of fuzzing for `SQLite` is located in `/home/sqlancer/target/logs/sql
 ### Install MYSQL
 Firstly, you need to install MySQL, See the detailed tutorial [INSTALL_MySQL.md](https://github.com/Reverie4u/OpenDBFuzz/blob/main/DBMSs/MySQL/INSTALL_MYSQL.md). In order to meet the requirements of SQLancer, you need to create a user named 'test' in MySQL, and the specific command is as follows:
 ```shell
-mysql -P 3306 -u root
+mysql -P 3306 -uroot -proot
 create database test;
 create user test identified by 'test';
 grant all on *.* to 'test'@'%';
