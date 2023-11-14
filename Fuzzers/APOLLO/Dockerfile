@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 LABEL maintainer="OpenDBFuzz"
+ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update
 RUN apt-get -y install wget ca-certificates sudo gnupg curl git lsb-release net-tools
